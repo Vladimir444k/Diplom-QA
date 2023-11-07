@@ -1,7 +1,6 @@
 package Data;
 
 import lombok.SneakyThrows;
-import org.openqa.selenium.remote.tracing.Status;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

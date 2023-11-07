@@ -2,27 +2,27 @@ package Data;
 
 import com.github.javafaker.Faker;
 import lombok.Value;
-import org.checkerframework.checker.units.qual.C;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+
 public class DataHelper {
-    private DataHelper(){
+    private DataHelper() {
     }
     @Value
     public static class CardInfo {
-        private String number;
-        private String month;
-        private String year;
-        private String holder;
-        private String cvc;
+        String number;
+        String month;
+        String year;
+        String holder;
+        String cvc;
     }
     private static final Faker faker = new Faker(new Locale("en"));
-    private static final DateFormatter format = DateFormatter.ofPattern("MM");
+    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("MM");
     private static String  monthEndOfAct = LocalDate.now().plusMonths(4).format(format);
-    private static final DateFormatter formatYear = DateFormatter.ofPattern("yy");
+    private static final DateTimeFormatter formatYear = DateTimeFormatter.ofPattern("yy");
     private static String yearEndOfAct = LocalDate.now().plusYears(2).format(formatYear);
     private static String nameHolder = faker.name().fullName();
     private static String cvc = Integer.toString(faker.number().numberBetween(100, 999));
