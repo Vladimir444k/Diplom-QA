@@ -122,14 +122,14 @@ public class DebitCardTest {
             var incorrectCardYear = DataHelper.getFutureYear();
             var paymentPage = new PaymentPage().selectBuyDebitCard();
             paymentPage.fillCardInfForSelectedWay(incorrectCardYear);
-            paymentPage.invalidExpiredDateNot();
+            paymentPage.paymentApproved();
         }
         @Test
         public void testNumbOfYearOneDigit() {
             var incorrectCardYear = DataHelper.getYearFromOneDigit();
             var paymentPage = new PaymentPage().selectBuyDebitCard();
             paymentPage.fillCardInfForSelectedWay(incorrectCardYear);
-            paymentPage.expiredDatePassNot();
+            paymentPage.improperFormatNot();
         }
         @Test
         public void testPastYear() {

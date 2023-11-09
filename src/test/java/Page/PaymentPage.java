@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PaymentPage {
-    private final SelenideElement buttonBuyDebitCard = $$(".button_text").find(exactText("Купить"));
-    private final SelenideElement buttonBuyCreditCard = $$("button_text").find(exactText("Купить в кредит"));
+    private final SelenideElement buttonBuyDebitCard = $$(".button__text").find(exactText("Купить"));
+    private final SelenideElement buttonBuyCreditCard = $$(".button__text").find(exactText("Купить в кредит"));
 
     public PaymentPage() {
         SelenideElement paymentBySelectedWayHeader = $$(".heading").findBy(exactText("Путешествие дня"));

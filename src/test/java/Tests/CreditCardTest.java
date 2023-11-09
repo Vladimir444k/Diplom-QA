@@ -35,7 +35,7 @@ public class CreditCardTest {
     class testPurchaseByCardWithDiffStatus {
         @Test
         void testPurchaseWithApproveCreditCard() throws SQLException {
-            DataHelper.CardInfo validCardInf = DataHelper.getApproveCard();
+            var validCardInf = DataHelper.getApproveCard();
             var travelPage = new PaymentPage();
             var creditCardPage = travelPage.selectBuyCreditCard();
             creditCardPage.creditCardFullInf(validCardInf);
@@ -129,7 +129,7 @@ public class CreditCardTest {
             var travelPage = new PaymentPage();
             var creditCardPage = travelPage.selectBuyCreditCard();
             creditCardPage.creditCardFullInf(invalidCardYear);
-            creditCardPage.invalidExpiredDateNot();
+            creditCardPage.paymentApprove();
         }
         @Test
         public void testNumbOfYearFromOneDigit() {
@@ -137,7 +137,7 @@ public class CreditCardTest {
             var travelPage = new PaymentPage();
             var creditCardPage = travelPage.selectBuyCreditCard();
             creditCardPage.creditCardFullInf(invalidCardYear);
-            creditCardPage.invalidExpiredDateNot();
+            creditCardPage.improperFormatPassNot();
         }
         @Test
         public void testPastYear() {

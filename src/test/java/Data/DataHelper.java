@@ -13,19 +13,19 @@ public class DataHelper {
     }
     @Value
     public static class CardInfo {
-        String number;
-        String month;
-        String year;
-        String holder;
-        String cvc;
+       private String number;
+       private String month;
+       private String year;
+       private String holder;
+       private String cvc;
     }
-    private static final Faker faker = new Faker(new Locale("en"));
-    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("MM");
-    private static String  monthEndOfAct = LocalDate.now().plusMonths(4).format(format);
-    private static final DateTimeFormatter formatYear = DateTimeFormatter.ofPattern("yy");
-    private static String yearEndOfAct = LocalDate.now().plusYears(2).format(formatYear);
-    private static String nameHolder = faker.name().fullName();
-    private static String cvc = Integer.toString(faker.number().numberBetween(100, 999));
+    static Faker faker = new Faker(new Locale("en"));
+    static DateTimeFormatter format = DateTimeFormatter.ofPattern("MM");
+    static String  monthEndOfAct = LocalDate.now().plusMonths(4).format(format);
+    static DateTimeFormatter formatYear = DateTimeFormatter.ofPattern("yy");
+    static String yearEndOfAct = LocalDate.now().plusYears(2).format(formatYear);
+    static String nameHolder = faker.name().fullName();
+    static String cvc = Integer.toString(faker.number().numberBetween(100, 999));
 
     public static CardInfo getApproveCard() {
         return new CardInfo("4444 4444 4444 4441",monthEndOfAct, yearEndOfAct, nameHolder, cvc);

@@ -28,6 +28,7 @@ dependencies {
     testImplementation 'io.qameta.allure:allure-selenide:2.16.1'
     testImplementation 'commons-dbutils:commons-dbutils:1.8.1'
     testImplementation 'com.codeborne:selenide:6.19.0'
+    testImplementation 'org.postgresql:postgresql:42.2.27'
     testImplementation 'org.slf4j:slf4j-simple:2.0.9'
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'

@@ -13,17 +13,17 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DebitCardPage {
     private final SelenideElement numberCardField = $(".input [placeholder='0000 0000 0000 0000']");
-    private final SelenideElement monthCard = $("input[placeholder='08']");
-    private final SelenideElement yearCard = $("input[placeholder='22']");
-    private final SelenideElement fieldCardHolder = $$("input_top").find(text("Владелец")).parent();
-    private final SelenideElement nameHolderCard = fieldCardHolder.$("input_control");
-    private final SelenideElement codeCVC = $("input[placeholder='999']");
-    private final SelenideElement buttonCont = $$("button").find(exactText("Продолжить"));
-    private final ElementsCollection resultLinks = $$(".input_top");
+    private final SelenideElement monthCard = $(".input [placeholder='08']");
+    private final SelenideElement yearCard = $(".input [placeholder='22']");
+    private final SelenideElement fieldCardHolder = $$(".input__top").find(text("Владелец")).parent();
+    private final SelenideElement nameHolderCard = fieldCardHolder.$(".input__control");
+    private final SelenideElement codeCVC = $(".input [placeholder='999']");
+    private final SelenideElement buttonCont = $$(".button").find(exactText("Продолжить"));
+    private final ElementsCollection resultLinks = $$(".input__top");
     private final SelenideElement incorrectFormat = $(byText("Неверный формат"));
     private final SelenideElement emptyField = $(byText("Поле обязательно для заполнения"));
     private final SelenideElement invalidExpiredDate = $(byText("Неверно указан срок действия карты"));
-    private final SelenideElement expiredCard = $(byText("Истек срок действия карты"));
+    private final SelenideElement expiredCard = $(byText("Истёк срок действия карты"));
     private final SelenideElement paymentApproveNotification = $(".notification_status_ok");
     private final SelenideElement paymentDeclineNotification = $(".notification_status_error");
 
