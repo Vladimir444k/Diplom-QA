@@ -1,0 +1,11 @@
+# Процедура запуска автотестов:
+- Открыть проект в IntelliJ IDEA. Склонировать репозиторий: https://github.com/Vladimir444k/Diplom-QA.git
+- Запустить Docker Desktop, после чего в терминале запустить контейнеры с БД с помощью команды docker-compose up
+- После запуска БД в новом окне терминала запустить SUT следующей командой: java -jar ./artifacts/aqa-shop.jar
+- Команда для запуска SUT с БД MySQL: java -jar artifacts/aqa-shop.jar --spring.datasource.url=jdbc:mysql://localhost:3306/app --spring.datasource.username=app --spring.datasource.password=pass
+- Команда для запуска SUT с БД Postgres: java -jar artifacts/aqa-shop.jar --spring.datasource.url=jdbc:postgresql://localhost:5432/app --spring.datasource.username=app --spring.datasource.password=pass
+- Проверить доступность самого приложения в браузере по адресу http://localhost:8080/
+- Запустить автотесты в терминале IDEA с помощью команды: ./gradlew clean test
+- Для БД MySQL: ./gradlew clean test -Ddb=mysql
+- Для БД Postgres: ./gradlew clean test -Ddb=postgresql
+- После проождения тестов для генерации отчета ввести следующую команду в терминале IDEA: ./gradlew allureServe
