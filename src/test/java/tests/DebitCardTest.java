@@ -1,8 +1,8 @@
-package Tests;
+package tests;
 
-import Data.DBHelper;
-import Data.DataHelper;
-import Page.PaymentPage;
+import data.DBHelper;
+import data.DataHelper;
+import page.PaymentPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -29,7 +29,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testPurchaseByCardWithDifferentStatus {
+    class TestPurchaseByCardWithDifferentStatus {
         @Test
         void testPurchaseWithApproveDebitCard() {
             var validCardInf = DataHelper.getApproveCard();
@@ -50,7 +50,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testFieldNumbTests {
+    class TestFieldNumbTests {
         @Test
         void testGetNotificationEmptyFields() {
             var incorrectCardInfo = DataHelper.getCardWithEmptyFields();
@@ -83,7 +83,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testFieldCardMonth {
+    class TestFieldCardMonth {
         @Test
         public void testNumbMonthMore12() {
             var incorrectCardMonth = DataHelper.getMonthIfMore12();
@@ -109,7 +109,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testFieldsCardYear {
+    class TestFieldsCardYear {
         @Test
         public void testInvalidYearIfZero() {
             var incorrectCardYear = DataHelper.getYearFromZero();
@@ -141,7 +141,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testFieldsCardOwner {
+    class TestFieldsCardOwner {
         @Test
         public void testCardHolderNameIsSpecSymbols() {
             var incorrectCardHold = DataHelper.getInvalidCardHolder();
@@ -168,7 +168,7 @@ public class DebitCardTest {
     }
 
     @Nested
-    class testFieldsCardCVC {
+    class TestFieldsCardCVC {
         @Test
         public void testCvcFromOneDigit() {
             var incorrectCardCvc = DataHelper.getCvcFromOneDigit();

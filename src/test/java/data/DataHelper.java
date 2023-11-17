@@ -1,4 +1,4 @@
-package Data;
+package data;
 
 import com.github.javafaker.Faker;
 import lombok.Value;
@@ -64,7 +64,7 @@ public class DataHelper {
     }
 
     public static CardInfo getFutureYear() {
-        return new CardInfo("4444 4444 4444 4441", monthEndOfAct, "25", nameHolder, cvc);
+        return new CardInfo("4444 4444 4444 4441", monthEndOfAct, yearEndOfAct, nameHolder, cvc);
     }
 
     public static CardInfo getYearFromOneDigit() {

@@ -1,6 +1,6 @@
-package Page;
+package page;
 
-import Data.DataHelper;
+import data.DataHelper;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 

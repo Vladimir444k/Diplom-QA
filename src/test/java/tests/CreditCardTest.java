@@ -1,15 +1,13 @@
-package Tests;
+package tests;
 
-import Data.DBHelper;
-import Data.DataHelper;
-import Page.PaymentPage;
+import data.DBHelper;
+import data.DataHelper;
+import page.PaymentPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.checkerframework.checker.units.qual.N;
 import org.junit.jupiter.api.*;
 
-import javax.xml.crypto.Data;
 import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -32,15 +30,15 @@ public class CreditCardTest {
         SelenideLogger.removeListener("allure");
     }
     @Nested
-    class testPurchaseByCardWithDiffStatus {
+    class TestPurchaseByCardWithDiffStatus {
         @Test
         void testPurchaseWithApproveCreditCard() throws SQLException {
-            var validCardInf = DataHelper.getApproveCard();
+            DataHelper.CardInfo validCardInf = DataHelper.getApproveCard();
             var travelPage = new PaymentPage();
             var creditCardPage = travelPage.selectBuyCreditCard();
             creditCardPage.creditCardFullInf(validCardInf);
             creditCardPage.paymentApprove();
-            assertEquals("APPROVE", DBHelper.getPaymentStatusCreditCard());
+            assertEquals("APPROVED", DBHelper.getPaymentStatusCreditCard());
         }
         @Test
         void testPurchaseWithDeclineCreditCard() throws SQLException {
@@ -54,7 +52,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class testFieldsCardNumb {
+    class TestFieldsCardNumb {
         @Test
         void testNotificationEmptyFields() {
             var invalidCardInf = DataHelper.getCardWithEmptyFields();
@@ -87,7 +85,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class testFieldMonth {
+    class TestFieldMonth {
         @Test
         public void testNumbOfMonthMore12() {
             var invalidCardMonth = DataHelper.getMonthIfMore12();
@@ -114,7 +112,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class testFieldYear {
+    class TestFieldYear {
         @Test
         public void testYearFromZero() {
             var invalidCardYear = DataHelper.getYearFromZero();
@@ -150,7 +148,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class testFieldCardOwner {
+    class TestFieldCardOwner {
         @Test
         public void testFieldHolderFromSpecSymbols() {
             var invalidCardHolder = DataHelper.getInvalidCardHolder();
@@ -178,7 +176,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class testFieldCardCvc {
+    class TestFieldCardCvc {
         @Test
         public void testCvcFromOneDigit() {
             var invalidCvc = DataHelper.getCvcFromOneDigit();
